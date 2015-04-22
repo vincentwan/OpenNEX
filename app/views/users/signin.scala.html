@@ -1,0 +1,29 @@
+@(form: Form[User])
+
+@main(title = "Sign In") {
+    <h1>Sign In</h1>
+
+    @helper.form(routes.UserController.authenticate) {
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" value="@form("email").value" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Login</button>
+        </div>
+        <div class="form-group">
+            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                Don't have an account?
+                <a href="@routes.UserController.signUp">
+                    Sign Up Here
+                </a>
+            </div>
+        </div>
+    }
+
+}
+

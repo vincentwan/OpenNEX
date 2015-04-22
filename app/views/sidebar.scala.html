@@ -1,0 +1,27 @@
+<ul class="sidebar-nav">
+    <li class="sidebar-brand">
+        <a href="@routes.Application.index">
+            OpenNEX
+        </a>
+    </li>
+    @if(request.username != null) {
+    <li>
+        <a href="@routes.WorkflowController.index">Workflows</a>
+    </li>
+    <li>
+        <a href="@routes.ServiceController.index">Services</a>
+    </li>
+    }
+    <li>
+        <a href="#">About</a>
+    </li>
+</ul>
+
+<ul class="sidebar-nav bottom">
+    <li>@request.username</li>
+    @if(request.username != null) {
+    <li><a href="@routes.UserController.signOut">Sign Out</a></li>
+    } else {
+    <li><a href="@routes.UserController.signIn">Sign In</a></li>
+    }
+</ul>
